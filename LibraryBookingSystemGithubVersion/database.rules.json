@@ -1,0 +1,69 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": false,
+    "allResources": {
+      "$resource": {
+				"$year": {
+					"$month": {
+						"$date": {
+              "$period": {
+                ".write": "
+                auth != null 
+                && ((!data.exists() && newData.exists()) 
+                || (data.exists() && !newData.exists()
+                && !newData.parent().parent().parent().parent().parent().parent().child('users').child(auth.uid).child('bookings').child($resource).child(data.child('generatedKey').val()).exists()                 
+                && newData.parent().parent().parent().parent().parent().parent().child('users').child(auth.uid).child('bookings').child('bookingsCount').child('count').val()+1 == root.child('users').child(auth.uid).child('bookings').child('bookingsCount').child('count').val()
+                ))
+                ",
+
+                ".validate": "
+                newData.parent().parent().parent().parent().parent().parent().child('users').child(auth.uid).child('bookings').child($resource).child(newData.child('generatedKey').val()).exists()
+								&& newData.hasChildren(['generatedKey', 'userEmail'])
+                && auth.token.email === newData.child('userEmail').val()         
+                "
+              }
+            }
+          }
+        }
+      }
+    },
+    "users": {
+      "$user_id": {
+        "bookings": {
+          "$booking_type": {
+            "$data_key": {
+                //only allow user to edit their user data, if their auth id equals that user id
+              ".write": "$user_id === auth.uid && ((!data.exists() && newData.exists()) || (data.exists() && newData.parent().parent().child('bookingsCount').child('count').val()+1 == data.parent().parent().child('bookingsCount').child('count').val()))",
+
+                //date = YYYY/MM/DD
+
+                ".validate": "
+                (newData.exists() && newData.hasChildren(['month', 'date', 'year', 'fullDate', 'period', 'resource']) 
+                && newData.child('period').isNumber() 
+                && newData.child('period').val() >= 1 && newData.child('period').val() <= 5
+                && newData.child('fullDate').isString()
+                && newData.child('fullDate').val().matches(/^(19|20)[0-9][0-9][-\\/. ](0[1-9]|1[012])[-\\/. ](0[1-9]|[12][0-9]|3[01])$/)
+                && newData.child('date').isString() && newData.child('month').isString() && newData.child('year').isString()
+                && newData.child('year').val() + '/' + newData.child('month').val() + '/' + newData.child('date').val() === newData.child('fullDate').val()
+                && (newData.child('resource').val() == 'cafeteria' || newData.child('resource').val() == 'computerLab' || newData.child('resource').val() == 'netbookCart' || newData.child('resource').val() == 'theatre')
+                && $booking_type === newData.child('resource').val()
+              	&& $data_key.length == 10 && !data.parent().child($data_key).exists()
+              	&& newData.parent().parent().child('bookingsCount').child('count').val()-1 == data.parent().parent().child('bookingsCount').child('count').val()
+                && newData.parent().parent().child('bookingsCount').child('count').val() <= 15
+                )
+              "             							
+            }
+          },
+          "bookingsCount": {
+						".write": "$user_id === auth.uid",
+              
+            ".validate": "
+            newData.child('count').isNumber()
+            "
+        	}
+        }
+      }
+    }
+  }
+}

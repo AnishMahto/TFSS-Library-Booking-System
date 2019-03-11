@@ -1,0 +1,523 @@
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+* {
+    cursor:pointer;
+}
+
+#addContentForm {
+    background-color:white;
+    min-height:450px;
+    position: fixed;
+    margin-top: 0%;
+    padding-bottom:30px;
+    z-index: 11;
+    overflow: auto;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+    #addContentForm {margin-top: 10%;}
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+    * {
+        cursor:auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .center-col-1 {margin-left: 8.33%;}
+    .center-col-2 {margin-left: 16.66%;}
+    .center-col-3 {margin-left: 25%;}
+    .center-col-4 {margin-left: 33.33%;}
+    .center-col-5 {margin-left:29.17%;}
+    .center-col-6 {margin-left: 0%}
+    .center-col-7 {margin-left: 20.83%;}
+    .center-col-8 {margin-left: 66.66%;}
+    .center-col-9 {margin-left: 75%;}
+    .center-col-10 {margin-left: 8.33%;}
+    .center-col-11 {margin-left: 91.66%;}
+    .center-col-12 {margin-left: 100%;}
+}
+
+a {
+    text-decoration: none;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+body {
+    background-color:#f2f2f2;
+    position:relative;
+}
+
+.tempMessage {
+    min-height:20px;
+    background-color:black;
+    color:white;
+    padding: 10px;
+    font-family:15px;
+    font-family: 'Nunito';
+    position:fixed;
+    bottom:0px;
+    margin:10px;
+    z-index:99;
+}
+
+#title {
+    font-family:'Roboto';
+    padding:20px;
+    /*padding-left: 14px;
+    padding-top:10px;*/
+    font-size:30px;
+}
+
+#menu {
+    background-color:#4b8ffa;
+    color:white;
+    min-height: 30px;
+    margin-top:0px;
+    /*margin-left:-10px;*/
+    box-sizing: border-box;
+    line-height: 30px;
+}
+
+#menu > ul > li:hover {
+    background-color:#74b9ff;
+}
+
+ul {
+    font-family:'Roboto';
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-bottom-color:#4b8ffa;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+}
+
+#curDate, #bookingsCount {
+    font-family:'Roboto';
+    padding:30px;
+    font-size:30px;
+    background-color:#5352ed;
+    color:white;
+}
+
+#chooseResourceHeader {
+    background-color:white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-height:60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:100%;
+    display: inline-block;
+    overflow-x: auto;
+}
+
+#prevMonth, #nextMonth, #curMonth {
+    display:inline-block;
+    float:left;
+    margin-left:20px;
+    padding:10px;
+    font-family: 'Roboto';
+}
+
+#prevMonth, #nextMonth {
+    font-size:15px;
+}
+
+#monthContainer {
+    margin-left:10px;
+}
+
+#curMonth {
+    font-size:30px;
+}
+
+#chooseResourceForm {
+    display:block;
+    float:left;
+}
+
+#chooseResourceForm > button {
+    height:40px;
+    width:80px;
+    margin-left:10px;
+}
+
+#chooseResourceForm > select {
+    height:40px;
+    width:120px;
+    outline:0px;
+    margin-left:10px;
+    font-family: 'Roboto';
+    font-size: 15px;
+    border:none;
+    border-radius:0px;
+}
+
+#getPrinterFriendlyButton, #chooseResourceForm > button {
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left:15px;
+    padding-right:15px;
+    float:right;
+    background-color:black;
+    margin-right:20px;
+    color:white;
+    font-family: 'Roboto';
+    font-size: 15px;
+    border:none;
+    border-radius:0px;
+}
+
+#calendar {
+    /*background-color:#293041;*/
+    width:100%;
+    max-height: 72vh;
+    overflow-y: auto;
+    padding-bottom:10px;
+}
+
+.calendarDay {
+    background-color:#f2f2f2;
+    height:200px;
+    width:200px;
+    margin-left:10px;
+    margin-top:10px;
+    display:inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.calendarDayHeader {
+    background-color:#4b7bec;
+    /*background-color:#70a1ff;*/
+    color:white;
+    padding-top:10px;
+    padding-left:10px;
+    font-size:15px;
+    height:40px;
+    max-width:100%;
+}
+
+.period {
+    width:180px;
+    height:28px;
+    padding-top:2px;
+    padding-left:10px;
+    display:table;
+    font-size:15px;
+}
+
+.unavailable {
+    border-right-style:solid;
+    border-right-color:#ff6348;
+    border-right-width:10px;
+}
+
+.available {
+    border-left-style:solid;
+    border-left-color:#7bed9f;
+    border-left-width:10px;
+    /*background-color:#7bed9f;*/
+}
+
+.available:hover, .unavailable:hover {
+    background-color:#2f3542;
+    color:white;
+}
+
+.printCalendarCell {
+    width:200px;
+    height:200px;
+    background-color:green;
+}
+
+.printCalendarDayHeader {
+    width:100%;
+    height:20%;
+    background-color:white;
+}
+
+.printCalendarDayPeriod {
+    width:100%;
+    height:16%;
+    background-color:blue;
+}
+
+#myBookings {
+    margin-top:50px;
+    margin-left:4%;
+    width:90%;
+    max-height:700px;
+    background-color:white;
+    padding-top:20px;
+    padding-left:20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    overflow-x: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.booking {
+    height: 60px;
+    min-width:1000px;
+}
+
+.bookingDate, .bookingPeriod, .bookingResource, .bookingCancel {
+    height: 40px;
+    display: inline-block;
+    padding-top:20px;
+    padding-left:30px;
+}
+
+.bookingDate {
+    width:200px;
+}
+
+.bookingPeriod {
+    width:100px;
+}
+
+.bookingResource {
+    width:400px;
+}
+
+.bookingCancel {
+    background-color:#e74c3c;
+    float:right;
+    width:80px;
+    color:white;
+}
+
+.bookingCancel:hover {
+    background-color:#e84118;
+    cursor:pointer;
+}
+
+#homePage {
+    width:100vw;
+    height:86vh;
+}
+
+#courseContent {
+    position:relative;
+    height:87.5vh;
+    display:inline-block;
+    float:left;
+    z-index:1;
+}
+
+#courseContentChooser {
+    height:40px;
+    background-color:#74b9ff;
+    width:100%;
+    color:white;
+}
+
+.homeOptions {
+    display:inline-block;
+    width:33.3%;
+    text-align:center;
+    padding-top:7px;
+    height:33px;
+    border-bottom-color:#74b9ff;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    font-family: "Nunito";
+}
+
+#instructions {
+    margin-top:50px;
+    margin-left:4%;
+    width:90%;
+    height:700px;
+    max-height:700px;
+    background-color:white;
+    padding-top:20px;
+    padding-left:20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    overflow-x: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#instructionsTitle {
+    font-family:'Roboto';
+    padding:30px;
+    font-size:30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.instructionsSubtitle {
+    font-family:'Roboto';
+    padding:15px;
+    font-size:30px;
+    color:white;
+    background-color:#192a56;
+    margin:20px;
+    border-radius:7px;
+    width:auto;
+    display:inline-block;
+}
+
+.instructionsText {
+    padding-left:50px;
+}
+
+.homeOptions:hover {
+    background-color: #4b8ffa;
+}
+
+#addContentBtn {
+    position: absolute; 
+    bottom: 10px;
+    right:20px;
+}
+
+#addContentBackdrop {
+    width:100%;
+    height:103%;
+    background-color:black;
+    opacity:0.5;
+    position:fixed;
+    z-index:10;
+}
+
+#noContentMessage {
+    margin-top:150px;
+    text-align:center;
+    color:#a6a6a6;
+}
+
+.demo-card-image.mdl-card {
+    display: inline-block;
+    margin:20px;
+    width: 250px;
+    height: 250px;
+    background-size:100%;
+    background-repeat: no-repeat;
+    background: url('#') no-repeat center;
+}
+.demo-card-image > .mdl-card__actions {
+    margin-top: -30px;
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.demo-card-image__filename {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.demo-list-item {
+    /*min-width: 150px;*/
+    background-color:#293041;
+    height:87.2vh;
+    float:left;
+    overflow-y: auto;
+}
+
+.mdl-list__item {
+    display:block;
+    font-family:"Arial";
+    color:white;
+    font-size:15px;
+}
+
+.mdl-list__item-primary-content {
+    width:100%;
+}
+
+.mdl-list__item:hover {
+    background-color:#34495e;
+}
+
+.demo-card-wide.mdl-card {
+  width: 512px;
+  text-align: center;
+}
+.demo-card-wide > .mdl-card__title {
+  color: black;
+  height: 50px;
+  background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.squareBackground {
+    float:left;
+    display:inline-block;
+    width:250px;
+    height:250px;
+    background-color:white;
+    margin:20px;
+    box-sizing: border-box;
+}
+
+.contentInfoSquare {
+    /*text-align:center;*/
+    height:60%;
+    font-family:"Open Sans";
+    font-size:16px;
+    overflow-y: auto;
+    padding:10px;
+    box-sizing: border-box;
+    color:black;
+}
+
+.contentInfoSquare::-webkit-scrollbar {
+    width: 0.5px;
+}
+
+body::-webkit-scrollbar {
+    width: 1px;
+}
